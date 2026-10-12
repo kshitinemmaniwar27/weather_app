@@ -7,5 +7,6 @@ final p=c.watch<WeatherProvider>();
 return Scaffold(appBar:AppBar(title:const Text('Settings')),body:ListView(children:[
 SwitchListTile(title:const Text('Use Celsius'),value:p.celsius,onChanged:p.toggleUnit),
 const ListTile(title:Text('Theme')),
-for(final m in ThemeMode.values)RadioListTile<ThemeMode>(title:Text(m.name),value:m,groupValue:p.mode,onChanged:(v)=>p.setMode(v!))]));}
+RadioGroup<ThemeMode>(groupValue:p.mode,onChanged:(v)=>p.setMode(v!),child:Column(children:[
+for(final m in ThemeMode.values)RadioListTile<ThemeMode>(title:Text(m.name),value:m)]))]));}
 }
